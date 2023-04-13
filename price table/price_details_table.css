@@ -31,12 +31,52 @@ td {
   padding: 1rem;
 }
 
-th{
-    font-family: cursive;
-    font-size: 20px;
-    color: #03203C;
+th {
+  font-family: cursive;
+  font-size: 20px;
+  color: #03203c;
 }
 
-td{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+td {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 625px) {
+  body {
+    height: auto;
+  }
+
+  th,
+  td {
+    font-size: 15px;
+  }
+
+  th {
+    display: none;
+  }
+
+  .head {
+    display: block;
+    font-weight: 800;
+    font-size: 22px;
+    padding: 2.5rem auto;
+    background-color: #2827cc;
+    color: #fff;
+  }
+
+  td {
+    display: block;
+    text-align: center;
+  }
+
+  th:first-child,
+  td:first-child {
+    font-weight: 600;
+    background-color: #120e43;
+    color: #fff;
+  }
+
+  td:not(:last-child) {
+    padding-bottom: 1rem;
+  }
 }
