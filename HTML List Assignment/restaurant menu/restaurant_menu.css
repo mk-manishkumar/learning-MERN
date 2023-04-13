@@ -6,6 +6,7 @@
 }
 
 body {
+  padding: 1rem 3rem;
   background: #ff512f; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -22,13 +23,13 @@ body {
 h1 {
   text-align: center;
   font-family: cursive;
-  margin: 1rem 0;
 }
 
 ol {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 15px;
+  margin-top: 2rem;
 }
 
 ol,
@@ -38,7 +39,7 @@ li {
 
 .menu {
   background-color: rgb(222, 196, 164);
-  width: 18%;
+  width: 300px;
   padding: 1.5rem;
   text-align: center;
   border-radius: 10px;
@@ -63,14 +64,22 @@ li {
   margin-bottom: 15px;
 }
 
-.menu-1 {
-  margin-left: 5rem;
-}
-
 .menu-2 {
   margin: auto;
 }
 
 .menu-3 {
-  margin-left: 70rem;
+  display: inline-block;
+  margin-left: auto;
+}
+
+@media (max-width: 375px) {
+  .menu {
+    width: 200px;
+    margin: auto;
+  }
+
+  .menu ul li{
+    font-size: 14px;
+  }
 }
