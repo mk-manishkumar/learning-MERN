@@ -18,10 +18,6 @@ This repository contains a comprehensive collection of my HTML and CSS projects,
 
 ![04](https://user-images.githubusercontent.com/102028645/230736195-23bc11f4-4f68-43b1-ae60-5f4e96b8d98e.jpg)
 
-# Registration Form Assignment
-
-![05](https://user-images.githubusercontent.com/102028645/230736211-4797c38c-1d67-42eb-b532-64c2a7ad3839.jpg)
-
 # Grid Assignment
 
 ## Desktop
