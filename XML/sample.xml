@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<friendsList>
+    <friends gender="Male">
+        <name>Aman</name>
+        <age>25</age>
+    </friends>
+    <friends>
+        <name>Naman</name>
+    </friends>
+    <friends>
+        <name>Mayank</name>
+    </friends>
+    <bestFriend>
+        <name>Prashant</name>
+    </bestFriend>
+</friendsList>
+
+<!-- Namespace -->
+
+<root>
+    <h:table xmlns:h="http://www.w3.org/TR/html4/">
+        <h:tr>
+            <h:td>Apples</h:td>
+            <h:td>Bananas</h:td>
+        </h:tr>
+    </h:table>
+
+    <f:table xmlns:f="http://www.w3.org/furniture">
+        <f:name>Coffee Table</f:name>
+        <f:width>10</f:width>
+        <f:length>20</f:length>
+    </f:table>
+</root>
+
+
+<!-- Namespace at root -->
+
+<root xmlns:h="http://www.w3.org/TR/html4/" xmlns:f="http://www.w3.org/furniture">
+    <h:table>
+        <h:tr>
+            <h:td>Apples</h:td>
+            <h:td>Bananas</h:td>
+        </h:tr>
+    </h:table>
+
+    <f:table xmlns:f="http://www.w3.org/furniture">
+        <f:name>Coffee Table</f:name>
+        <f:width>10</f:width>
+        <f:length>20</f:length>
+    </f:table>
+</root>
+
+<!-- XPath -->
+
+XPath is a way to navigate and search for specific elements and data in XML or HTML documents. It's like a "path" or "route" to find what you're looking for.
+
+<!-- code -->
+
+<bookstore>
+    <book category="fiction">
+        <title lang="en">Harry Potter</title>
+        <author>J.K. Rowling</author>
+        <price>20</price>
+    </book>
+    <book category="non-fiction">
+        <title lang="en">The Power of Habit</title>
+        <author>Charles Duhigg</author>
+        <price>15</price>
+    </book>
+    <book category="fiction">
+        <title lang="en">The Hobbit</title>
+        <author>J.R.R. Tolkien</author>
+        <price>25</price>
+    </book>
+</bookstore>
+
+
+XPath: /bookstore/book
+Result: Returns all <book> elements.
+
+XPath: /bookstore/book[@category="fiction"]/title
+Result: Returns the <title> elements with text "Harry Potter" and "The Hobbit".
