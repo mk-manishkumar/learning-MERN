@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Bookmark App</title>
+  </head>
+  <body>
+    <header>
+      <h1>My Bookmarks</h1>
+    </header>
+    <main>
+      <section class="add-bookmark">
+        <h2>Add Bookmark</h2>
+        <div class="input-bookmark">
+          <input type="text" id="bookmarkUrl" placeholder="Enter URL" />
+          <input type="text" id="bookmarkName" placeholder="Enter Name" />
+        </div>
+        <button id="addBookmarkBtn">Add</button>
+      </section>
+      <section class="bookmarks">
+        <h2>Saved Bookmarks</h2>
+        <div id="bookmarkList"></div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
