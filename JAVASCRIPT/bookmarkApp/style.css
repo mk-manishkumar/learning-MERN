@@ -59,9 +59,10 @@ button {
 }
 
 .url-detail{
-    display: flex;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
     font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .url-detail p{
