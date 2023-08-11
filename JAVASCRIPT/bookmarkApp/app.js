@@ -1,5 +1,6 @@
 const addButton = document.querySelector("#addBookmarkBtn");
 const bookmarkList = document.querySelector("#bookmarkList");
+const clearAll = document.querySelector("#clear-all");
 
 function addBookmark() {
   let urlId = document.querySelector("#bookmarkUrl").value;
@@ -21,6 +22,12 @@ function addBookmark() {
 
   document.querySelector("#bookmarkUrl").value = "";
   document.querySelector("#bookmarkName").value = "";
+
+  if (bookmarkList.innerHTML === "") {
+    clearAll.style.visibility = "hidden";
+  } else {
+    clearAll.style.visibility = "visible";
+  }
 
   // Attach delete event listener to the new delete icon
   const deleteIcon = bookmarkList.lastElementChild.querySelector(".delete");
@@ -59,8 +66,26 @@ function handleDelete(e) {
   let storedURLs = JSON.parse(localStorage.getItem("urlList")) || [];
   storedURLs = storedURLs.filter((storedURL) => storedURL.urlId !== urlId);
   localStorage.setItem("urlList", JSON.stringify(storedURLs));
+
+  if (bookmarkList.innerHTML === "") {
+    clearAll.style.visibility = "hidden";
+  }
 }
 
-document.addEventListener("DOMContentLoaded", storedData);
+clearAll.addEventListener("click", () => {
+  bookmarkList.innerHTML = "";
+  localStorage.clear();
+  clearAll.style.visibility = "hidden";
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  storedData();
+
+  if (bookmarkList.innerHTML === "") {
+    clearAll.style.visibility = "hidden";
+  } else {
+    clearAll.style.visibility = "visible";
+  }
+});
 
 addButton.addEventListener("click", addBookmark);

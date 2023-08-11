@@ -79,3 +79,19 @@ button {
   color: black;
   cursor: pointer;
 }
+
+#clear-all {
+  position: relative;
+  left: 50vw;
+  margin-bottom: 1rem;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 0.2rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#clear-all:hover {
+  background-color: #fff;
+  color: black;
+}
