@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote of the Day</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="quote-box">
+      <h2>Quote of the Day</h2>
+      <blockquote id="quote">Loading...</blockquote>
+      <span id="author">Loading...</span>
+      <div>
+        <button id="new" onclick="getquote(apiUrl)">New Quote</button>
+        <button onclick="tweet()">Tweet</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
