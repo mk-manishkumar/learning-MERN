@@ -1,0 +1,64 @@
+/* General Styles */
+body {
+  background-color: #19172e;
+  font-family: sans-serif;
+}
+
+.container {
+  margin-top: 10rem;
+}
+
+/* Input Styles */
+.input-field {
+  width: 250px;
+  outline: none;
+  border-radius: 9px;
+  border: none;
+  display: block;
+  margin: 2rem auto;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+}
+
+/* Button Style */
+.calculate-button {
+  width: 200px;
+  border-radius: 9px;
+  border: none;
+  margin: auto;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  background: coral;
+  color: #fff;
+}
+
+/* Result Field */
+.result-field {
+  width: 300px;
+  border-radius: 7px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  margin-left: 38%;
+  margin-top: 2rem;
+  outline: none;
+}
+
+/* Title Styles */
+.title {
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 1rem;
+}
+
+/* Info Styles */
+.info {
+  text-align: center;
+  font-family: cursive;
+  margin-top: 2rem;
+  color: aqua;
+}
