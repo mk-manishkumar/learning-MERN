@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #e65c00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f9d423,
+    #e65c00
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f9d423,
+    #e65c00
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 1rem;
+}
+
+th {
+  font-family: cursive;
+  font-size: 20px;
+  color: #03203c;
+}
+
+td {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media (max-width: 625px) {
+  body {
+    height: auto;
+  }
+
+  th,
+  td {
+    font-size: 15px;
+  }
+
+  th {
+    display: none;
+  }
+
+  .head {
+    display: block;
+    font-weight: 800;
+    font-size: 22px;
+    padding: 2.5rem auto;
+    background-color: #2827cc;
+    color: #fff;
+  }
+
+  td {
+    display: block;
+    text-align: center;
+  }
+
+  th:first-child,
+  td:first-child {
+    font-weight: 600;
+    background-color: #120e43;
+    color: #fff;
+  }
+
+  td:not(:last-child) {
+    padding-bottom: 1rem;
+  }
+}

@@ -1,0 +1,370 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #aa076b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin: 1rem 0;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.todo ul {
+  list-style-type: none;
+}
+
+.todo ul li {
+  background-color: #ffebcd;
+  padding: 15px 3rem;
+  margin-bottom: 5px;
+  font-family: cursive;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.todo ul li input {
+  margin-right: 1rem;
+  transform: scale(1.5);
+}
+
+.todo button {
+  padding: 15px;
+  font-size: 20px;
+  width: 315px;
+  background-color: #3944f7;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 380px) {
+  .todo ul li {
+    font-size: 15px;
+    padding: 15px 25px;
+  }
+
+  .todo button {
+    width: 225px;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #aa076b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin: 1rem 0;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.todo ul {
+  list-style-type: none;
+}
+
+.todo ul li {
+  background-color: #ffebcd;
+  padding: 15px 3rem;
+  margin-bottom: 5px;
+  font-family: cursive;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.todo ul li input {
+  margin-right: 1rem;
+  transform: scale(1.5);
+}
+
+.todo button {
+  padding: 15px;
+  font-size: 20px;
+  width: 315px;
+  background-color: #3944f7;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 380px) {
+  .todo ul li {
+    font-size: 15px;
+    padding: 15px 25px;
+  }
+
+  .todo button {
+    width: 225px;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #aa076b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin: 1rem 0;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.todo ul {
+  list-style-type: none;
+}
+
+.todo ul li {
+  background-color: #ffebcd;
+  padding: 15px 3rem;
+  margin-bottom: 5px;
+  font-family: cursive;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.todo ul li input {
+  margin-right: 1rem;
+  transform: scale(1.5);
+}
+
+.todo button {
+  padding: 15px;
+  font-size: 20px;
+  width: 315px;
+  background-color: #3944f7;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 380px) {
+  .todo ul li {
+    font-size: 15px;
+    padding: 15px 25px;
+  }
+
+  .todo button {
+    width: 225px;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #aa076b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin: 1rem 0;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.todo ul {
+  list-style-type: none;
+}
+
+.todo ul li {
+  background-color: #ffebcd;
+  padding: 15px 3rem;
+  margin-bottom: 5px;
+  font-family: cursive;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.todo ul li input {
+  margin-right: 1rem;
+  transform: scale(1.5);
+}
+
+.todo button {
+  padding: 15px;
+  font-size: 20px;
+  width: 315px;
+  background-color: #3944f7;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 380px) {
+  .todo ul li {
+    font-size: 15px;
+    padding: 15px 25px;
+  }
+
+  .todo button {
+    width: 225px;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #aa076b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #61045f,
+    #aa076b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  color: #ffffff;
+  margin: 1rem 0;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.todo ul {
+  list-style-type: none;
+}
+
+.todo ul li {
+  background-color: #ffebcd;
+  padding: 15px 3rem;
+  margin-bottom: 5px;
+  font-family: cursive;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.todo ul li input {
+  margin-right: 1rem;
+  transform: scale(1.5);
+}
+
+.todo button {
+  padding: 15px;
+  font-size: 20px;
+  width: 315px;
+  background-color: #3944f7;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 380px) {
+  .todo ul li {
+    font-size: 15px;
+    padding: 15px 25px;
+  }
+
+  .todo button {
+    width: 225px;
+  }
+}

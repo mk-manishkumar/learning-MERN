@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  padding: 1rem 3rem;
+  background: #ff512f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f09819,
+    #ff512f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f09819,
+    #ff512f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  text-align: center;
+  font-family: cursive;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 2rem;
+}
+
+ol,
+li {
+  list-style-type: none;
+}
+
+.menu {
+  background-color: rgb(222, 196, 164);
+  width: 300px;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.menu h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #5a20cb;
+}
+
+.menu ul {
+  margin-top: 1rem;
+}
+
+.menu ul li {
+  font-family: sans-serif;
+  margin-bottom: 15px;
+}
+
+.menu-2 {
+  margin: auto;
+}
+
+.menu-3 {
+  display: inline-block;
+  margin-left: auto;
+}
+
+@media (max-width: 375px) {
+  .menu {
+    width: 200px;
+    margin: auto;
+  }
+
+  .menu ul li{
+    font-size: 14px;
+  }
+}
