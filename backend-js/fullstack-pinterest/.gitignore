@@ -1,0 +1,28 @@
+# Node.js
+node_modules/
+
+# Express generated files
+.env
+
+# MongoDB
+*.log
+*.lock
+*.lwt
+*.wt
+
+# EJS
+/views/*.ejs.cache
+
+# Visual Studio Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# npm
+*.log
+npm-debug.log*
