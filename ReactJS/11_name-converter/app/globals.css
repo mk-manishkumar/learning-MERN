@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: coral;
+}
+
+.btn {
+  background-color: antiquewhite;
+  padding: 0.4rem;
+  width: 270px;
+  text-align: left;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+span{
+  color: blueviolet;
+  margin-left: 1rem;
+  font-family: cursive;
+}
