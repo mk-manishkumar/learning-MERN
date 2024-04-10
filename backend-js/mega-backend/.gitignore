@@ -1,0 +1,40 @@
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# Editor specific files
+.vscode/
+.idea/
+
+# Build files
+/build
+
+# Compiled files (if using TypeScript)
+/dist
+
+# Test coverage
+/coverage
+
+# Environment configuration
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore sensitive or personal files (adjust as needed)
+config/*.json
+secrets/*.json
+
