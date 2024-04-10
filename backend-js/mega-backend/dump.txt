@@ -1,0 +1,56 @@
+connecting db through IIFE
+
+import express from "express";
+const app = express();
+const port = process.env.PORT || 3000;
+
+(async () => {
+  try {
+    await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
+    app.on("error", (error) => {
+      console.log("ERROR: ", error);
+      throw error;
+    });
+
+    app.listen(port, () => {
+      console.log(`App is listening on port ${port}`);
+    });
+  } catch (error) {
+    console.error("ERROR: ", error);
+    throw err;
+  }
+})();
+
+***************************************************************************************************************
+
+Util asyncHandler
+
+// const asyncHandler = () => {}
+// const asyncHandler = (func) => () => {}
+// const asyncHandler = (func) => async () => {}
+
+
+// const asyncHandler = (fn) => async (req, res, next) => {
+//     try {
+//         await fn(req, res, next)
+//     } catch (error) {
+//         res.status(err.code || 500).json({
+//             success: false,
+//             message: err.message
+//         })
+//     }
+// }
+
+
+***************************************************************************************************************
+
+HTTP response status codes
+
+Informational responses (100 – 199)
+Successful responses (200 – 299)
+Redirection messages (300 – 399)
+Client error responses (400 – 499)
+Server error responses (500 – 599)
+
+***************************************************************************************************************
+
