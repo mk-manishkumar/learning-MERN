@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authentication NodeJS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-full h-screen bg-zinc-900 text-white p-10">
+      <h3 class="text-3xl mb-5">Create User</h3>
+      <form action="/create" method="post">
+        <input class="w-96 block mb-5 px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="text" placeholder="Enter Username" name="username" />
+        <input class="w-96 block mb-5 px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="email" placeholder="Enter Email" name="email" />
+        <input class="w-96 block mb-5 px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="password" placeholder="Enter Password" name="password" />
+        <input class="w-96 block mb-5 px-3 py-2 rounded-md bg-transparent border-2 border-zinc-800 outline-none" type="number" placeholder="Enter Age" name="age" />
+        <input class="px-4 py-2 bg-blue-500 rounded-md" type="submit" value="Create User" />
+      </form>
+    </div>
+  </body>
+</html>

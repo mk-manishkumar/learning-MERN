@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= user.name %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-full h-screen bg-zinc-900 p-10 text-white">
+      <div class="mb-10 nav">
+        <a class="text-blue-500" href="/">Back to Home</a>
+        <a class="text-blue-500 ml-5" href="/read">See All Users</a>
+      </div>
+      <div class="profile w-full flex items-center flex-col gap-5">
+        <img class="w-72 h-72 rounded-full" src="<%= user.image %>" alt="" />
+        <h3 class="text-blue-500 text-2xl"><%= user.name %></h3>
+        <h5 class="text-zinc-500"><%= user.email %></h5>
+        <p class="w-1/2"><%= user.description %></p>
+      </div>
+    </div>
+  </body>
+</html>
