@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const blackListTokenModel = require("../models/BlackListToken.model");
 const captainModel = require("../models/Captain.model");
 
+// user
 module.exports.authUser = async (req, res, next) => {
   const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
 
@@ -25,6 +26,7 @@ module.exports.authUser = async (req, res, next) => {
   }
 };
 
+// captain
 module.exports.authCaptain = async (req, res, next) => {
   const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
 
