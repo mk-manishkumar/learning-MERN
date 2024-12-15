@@ -1,0 +1,36 @@
+.layout{
+  background-color: #025B34;
+  width: 600px;
+  height: 400px;
+  border-radius: 20px;
+  color: white;
+  padding: 1rem;
+}
+
+h1{
+  text-align: center;
+  margin-top: 2rem;
+}
+
+input{
+  width: 80%;
+  padding: 0.5rem;
+  outline: none;
+  border-radius: 15px;
+  margin: 2rem auto;
+  display: block;
+  font-size: 1.2rem;
+}
+
+.resultArea{
+  margin-left: 20%;
+}
+
+h2{
+  padding: 0.5rem;
+}
+
+span{
+  color: yellow;
+  font-size: 1.8rem;
+}
