@@ -16,6 +16,10 @@ const candidateRoutes = require("./routes/candidateRoutes");
 app.use("/user", userRoutes);
 app.use("/candidate", candidateRoutes);
 
+app.get("/", (req, res) => {
+  res.redirect("/candidate");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
