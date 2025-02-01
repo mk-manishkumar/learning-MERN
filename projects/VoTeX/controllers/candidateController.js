@@ -1,6 +1,5 @@
 const User = require("../models/user.model");
 const Candidate = require("../models/candidates.model");
-const { checkAdminRole } = require("../utils/util");
 
 
 // ========================= ADDING A NEW CANDIDATE =========================
