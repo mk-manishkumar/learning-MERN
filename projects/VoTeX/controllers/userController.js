@@ -4,123 +4,137 @@ const { generateToken } = require("../middlewares/auth");
 // ====================SIGNUP CONTROLLER=====================
 const signup = async (req, res) => {
   try {
-    const data = req.body; // Assuming the request body contains the User data
+    const data = req.body;
 
-    // Check if there is already an admin user
-    const adminUser = await User.findOne({ role: "admin" });
-    if (data.role === "admin" && adminUser) {
-      return res.status(400).json({ error: "Admin user already exists" });
+    // Ensure role is not manipulated (e.g., normal users can't sign up as admin)
+    if (data.role && data.role !== "user" && data.role !== "admin") {
+      return res.status(400).json({ error: "Invalid role" });
     }
 
-    // Validate Aadhar Card Number must have exactly 12 digit
-    if (!/^\d{12}$/.test(data.aadharCardNumber)) {
+    // Check if there is already an admin user
+    if (data.role === "admin") {
+      const adminUser = await User.findOne({ role: "admin" });
+      if (adminUser) {
+        return res.status(400).json({ error: "Admin user already exists" });
+      }
+    }
+
+    // Ensure Aadhar Card Number is a valid 12-digit number
+    if (!/^\d{12}$/.test(data.aadharCardNumber.trim())) {
       return res.status(400).json({ error: "Aadhar Card Number must be exactly 12 digits" });
     }
 
-    // Check if a user with the same Aadhar Card Number already exists
+    // Prevent duplicate Aadhar Card Numbers
     const existingUser = await User.findOne({ aadharCardNumber: data.aadharCardNumber });
     if (existingUser) {
-      return res.status(400).json({ error: "User with the same Aadhar Card Number already exists" });
+      return res.status(400).json({ error: "User with this Aadhar Card Number already exists" });
     }
 
-    // Create a new User document using the Mongoose model
+    // Create new user
     const newUser = new User(data);
-
-    // Save the new user to the database
     const response = await newUser.save();
-    console.log("data saved");
 
-    const payload = {
-      id: response.id,
-    };
-    console.log(JSON.stringify(payload));
-    const token = generateToken(payload);
+    // Generate token
+    const token = generateToken({ id: response.id });
 
-    res.status(200).json({ response: response, token: token });
+    res.status(201).json({ user: response, token });
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error(err);
+    res.status(500).json({ error: "Failed to register user", details: err.message });
   }
 };
 
 // ====================LOGIN CONTROLLER=====================
 const login = async (req, res) => {
   try {
-    // Extract aadharCardNumber and password from request body
     const { aadharCardNumber, password } = req.body;
 
-    // Check if aadharCardNumber or password is missing
+    // Check for missing fields
     if (!aadharCardNumber || !password) {
       return res.status(400).json({ error: "Aadhar Card Number and password are required" });
     }
 
-    // Find the user by aadharCardNumber
-    const user = await User.findOne({ aadharCardNumber: aadharCardNumber });
-
-    // If user does not exist or password does not match, return error
-    if (!user || !(await user.comparePassword(password))) {
+    // Find user by Aadhar Card Number
+    const user = await User.findOne({ aadharCardNumber: aadharCardNumber.trim() });
+    if (!user) {
       return res.status(401).json({ error: "Invalid Aadhar Card Number or Password" });
     }
 
-    // generate Token
-    const payload = {
-      id: user.id,
-    };
-    const token = generateToken(payload);
+    // Check password
+    const isMatch = await user.comparePassword(password);
+    if (!isMatch) {
+      return res.status(401).json({ error: "Invalid Aadhar Card Number or Password" });
+    }
 
-    // resturn token as response
-    res.json({ token });
+    // Generate token
+    const token = generateToken({ id: user.id });
+
+    res.status(200).json({ token });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Failed to log in", details: err.message });
   }
 };
 
 // ====================PROFILE CONTROLLER=====================
 const profile = async (req, res) => {
   try {
-    const userData = req.user;
-    const userId = userData.id;
-    const user = await User.findById(userId);
+    const userId = req.user?.id;
+    if (!userId) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    const user = await User.findById(userId).select("-password"); // Don't send password in response
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     res.status(200).json({ user });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Failed to fetch profile", details: err.message });
   }
 };
 
 // ====================CHANGE PASSWORD CONTROLLER=====================
 const changePassword = async (req, res) => {
   try {
-    const userData = req.user;
-    const userId = userData.id;
+    const userId = req.user?.id;
     const { currentPassword, newPassword } = req.body;
 
-    // Check if currentPassword and newPassword are present in the request body
-    if (!currentPassword || !newPassword) {
-      return res.status(400).json({ error: "Both currentPassword and newPassword are required" });
+    if (!userId) {
+      return res.status(401).json({ error: "Unauthorized" });
     }
 
-    // Find the user by userID
-    const user = await User.findById(userId);
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({ error: "Both current and new passwords are required" });
+    }
 
-    // If user does not exist or password does not match, return error
-    if (!user || !(await user.comparePassword(currentPassword))) {
+    if (currentPassword.trim() === newPassword.trim()) {
+      return res.status(400).json({ error: "New password must be different from the current password" });
+    }
+
+    // Find user
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Check current password
+    const isMatch = await user.comparePassword(currentPassword);
+    if (!isMatch) {
       return res.status(401).json({ error: "Invalid current password" });
     }
 
-    // Update the user's password
+    // Update password
     user.password = newPassword;
     await user.save();
 
-    console.log("password updated");
-    res.status(200).json({ message: "Password updated" });
+    res.status(200).json({ message: "Password updated successfully" });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Failed to update password", details: err.message });
   }
 };
-
-
 
 module.exports = { signup, login, profile, changePassword };
