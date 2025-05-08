@@ -1,0 +1,5 @@
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+
+.App {
+  min-height: 100vh;
+}
