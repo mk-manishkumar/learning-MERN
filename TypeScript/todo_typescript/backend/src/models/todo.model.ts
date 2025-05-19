@@ -1,8 +1,5 @@
-export class Todo {
-  public id : string;
-  public text : string;
-  constructor( id :string, text : string){
-      this.id = id;
-      this.text = text;
-  };
+import type { Todo as TodoType } from "../types/todo";
+
+export class Todo implements TodoType {
+  constructor(public id: string, public text: string) {}
 }

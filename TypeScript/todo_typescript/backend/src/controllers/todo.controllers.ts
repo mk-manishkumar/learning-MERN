@@ -1,48 +1,74 @@
-import { RequestHandler } from "express"
+import { RequestHandler } from "express";
 import { Todo } from "../models/todo.model";
+import { readTodosFromFile, writeTodosToFile } from "../utils/fileHandler";
 
-const TODO : Todo[] = [];
+// create todo
+export const createTodo: RequestHandler = async (req, res) => {
+  const text = (req.body as { text: string }).text;
 
-export const createTodo : RequestHandler = (req,res) => {
-  // const text = (req.body as {text : string}).text;
-  const text = (<{text: string}>req.body).text;
+  if (!text || text.trim().length === 0) {
+    res.status(400).json({ message: "Todo text cannot be empty." });
+    return;
+  }
+
+  const todos = await readTodosFromFile();
 
   const newTodo = new Todo(Math.random().toString(), text);
+  todos.push(newTodo);
 
-  TODO.push(newTodo);
-  
-  res.status(201).json({message:"Todo created.", newTodo});
-}
+  await writeTodosToFile(todos);
 
-export const getTodo : RequestHandler = (req,res) => {
-  res.status(200).json(TODO);
-}
+  res.status(201).json({ message: "Todo created.", newTodo });
+};
 
-export const updateTodo : RequestHandler<{todoId : string}> = (req,res) => {
-  const todoId = req.params.todoId;
-  const text = (req.body as {text:string}).text;
+// get all todos
+export const getTodo: RequestHandler = async (_, res) => {
+  const todos = await readTodosFromFile();
+  res.status(200).json(todos);
+};
 
-  const todoIndex = TODO.findIndex((todo) => todo.id === todoId);
+// update todo
+export const updateTodo: RequestHandler<{ todoId: string }> = async (req, res) => {
+  const { todoId } = req.params;
+  const { text } = req.body as { text: string };
 
-  if(todoIndex < 0) {
-      throw new Error('Todo not found.')
+  if (!text || text.trim().length === 0) {
+    res.status(400).json({ message: "Todo text cannot be empty." });
+    return;
   }
 
-  //update todo
-  TODO[todoIndex] = new Todo(TODO[todoIndex].id, text);
+  const todos = await readTodosFromFile();
 
-  res.status(200).json({message:"Todo updated", newTodo: TODO[todoIndex]});
-}
+  const todoIndex = todos.findIndex((todo: Todo) => todo.id === todoId);
 
-export const deleteTodo : RequestHandler<{todoId : string}>  = (req,res) => {
-  const todoId = req.params.todoId;
-
-  const todoIndex = TODO.findIndex((todo) => todo.id === todoId);
-
-  if(todoIndex < 0) {
-      throw new Error('Todo not found.')
+  if (todoIndex < 0) {
+    res.status(404).json({ message: "Todo not found." });
+    return;
   }
 
-  TODO.splice(todoIndex, 1);
-  res.status(200).json({message:"Todo deleted."})
-}
+  todos[todoIndex].text = text;
+
+  await writeTodosToFile(todos);
+
+  res.status(200).json({ message: "Todo updated.", updatedTodo: todos[todoIndex] });
+};
+
+// delete todo 
+export const deleteTodo: RequestHandler<{ todoId: string }> = async (req, res) => {
+  const { todoId } = req.params;
+
+  const todos = await readTodosFromFile();
+
+  const todoIndex = todos.findIndex((todo: Todo) => todo.id === todoId);
+
+  if (todoIndex < 0) {
+    res.status(404).json({ message: "Todo not found." });
+    return;
+  }
+
+  todos.splice(todoIndex, 1);
+
+  await writeTodosToFile(todos);
+
+  res.status(200).json({ message: "Todo deleted." });
+};
