@@ -12,6 +12,7 @@ app.use("/todos", todoRoutes);
 
 // middlware to handle error any other request
 app.use((err : Error, req : Request,res : Response,next : NextFunction) => {
+  console.error("Error:", err.message);
   res.status(500).json({message:err.message});
 })
 

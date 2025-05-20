@@ -21,7 +21,7 @@ const AddTodo = ({ onAddTodo }: AddTodoProps) => {
   };
 
   return (
-    <form onSubmit={submitHandler} className="flex items-center gap-5">
+    <form onSubmit={submitHandler} className="flex items-center gap-5 justify-center">
       <Input
         onChange={changeEventHandler}
         value={text}

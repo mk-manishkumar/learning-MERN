@@ -3,6 +3,7 @@ import { Card, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Delete } from "lucide-react";
 
+
 type TodoListProps = {
   items: { id: string; text: string }[];
   onRemoveTodo: (todoId: string) => void;

@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon dist/index.js"
+    "build": "tsc",
+    "copy-data": "mkdir dist\\data && copy src\\data\\todos.json dist\\data\\todos.json",
+    "start": "npm run build && npm run copy-data && nodemon dist/index.js",
+    "dev": "npm run start"
   },
   "keywords": [],
   "author": "",
